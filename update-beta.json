@@ -1,0 +1,18 @@
+{
+  "schema_version": "answer_book.update_manifest.v1",
+  "version": "0.9.0-beta",
+  "release_tag": "v0.9.0-beta",
+  "notes": "内部体验版：支持真题解析、题生题和知识点生题；优化多模态模型直读图片、模型能力缓存、程序内检查更新与独立用户数据目录。",
+  "platforms": {
+    "macos-arm64": {
+      "asset_name": "answer-book-platform-0.9.0-beta-macos-arm64.dmg",
+      "size_bytes": 132185137,
+      "sha256": "c96eec85017ac112d9573d1431c8dad5dcbae56f0fc18a6c0ff8f88117064506"
+    },
+    "windows-x86_64": {
+      "asset_name": "answer-book-platform-0.9.0-beta-windows-x86_64.zip",
+      "size_bytes": 74071072,
+      "sha256": "2410047024c820957bff6ae0985e437e2d3b904e1efdee0808e0db6fcb8cb27c"
+    }
+  }
+}
