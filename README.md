@@ -2,12 +2,17 @@
 
 这里提供平台内部体验版的安装包与应用内更新文件。
 
-## 下载
+## 点击下载
 
-- macOS（Apple 芯片）：下载 `.dmg` 文件，拖入“应用程序”后运行。
-- Windows 64 位：下载 `.zip` 文件，解压后运行“真题解析与生题平台.exe”。
+- **[Windows 64 位版：点击这里下载 ZIP](https://github.com/xiandan-superman/answer-book-platform-releases/releases/download/v0.9.0-beta/answer-book-platform-0.9.0-beta-windows-x86_64.zip)**
+- **[Mac Apple 芯片版：点击这里下载 DMG](https://github.com/xiandan-superman/answer-book-platform-releases/releases/download/v0.9.0-beta/answer-book-platform-0.9.0-beta-macos-arm64.dmg)**
 
-请从右侧 **Releases** 进入最新版本下载。软件界面、操作提示和输出内容均面向中文用户。
+下载后：
+
+- Windows：解压 ZIP，运行“真题解析与生题平台.exe”。
+- Mac：打开 DMG，将软件拖入“应用程序”。
+
+软件界面、操作提示和输出内容均面向中文用户。
 
 ## 使用说明
 
