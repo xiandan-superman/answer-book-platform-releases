@@ -1,18 +1,18 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.0",
-  "release_tag": "v0.9.0",
-  "notes": "正式版本：支持真题解析、题生题和知识点生题；支持多模态模型直接读取图片、模型能力缓存、应用内更新和独立用户数据目录。",
+  "version": "0.9.1",
+  "release_tag": "v0.9.1",
+  "notes": "真题解析与生题平台 0.9.1\n\n- Mac（Apple 芯片）与 Windows 64 位安装包\n- 安装包由 GitHub Actions 从已确认源码自动构建\n- 应用内更新会先校验 SHA256",
   "platforms": {
     "macos-arm64": {
-      "asset_name": "answer-book-platform-0.9.0-macos-arm64.dmg",
-      "size_bytes": 129757238,
-      "sha256": "ac95a7eaa24fa8f4a848c1e6c1dff5212ebeb0c17120ac12a50b8b6e28d57c57"
+      "asset_name": "answer-book-platform-0.9.1-macos-arm64.dmg",
+      "size_bytes": 154156472,
+      "sha256": "7917403f29b9f98b291366cccc50874bec8994b03c3451282865250f475bbd13"
     },
     "windows-x86_64": {
-      "asset_name": "answer-book-platform-0.9.0-windows-x86_64.zip",
-      "size_bytes": 74072181,
-      "sha256": "18be4054225b29c6e90a414a0351e9609f6280df05ad6c6af1c1f4597f90629f"
+      "asset_name": "answer-book-platform-0.9.1-windows-x86_64.zip",
+      "size_bytes": 74070675,
+      "sha256": "ce9af5a00aaefd3113e76b6511b5a6a503c1b21f4e96b8ced7efbf751368ef4f"
     }
   }
 }
