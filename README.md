@@ -1,11 +1,11 @@
 # 真题解析与生题平台
 
-这里提供平台内部体验版的安装包与应用内更新文件。
+这里提供平台的正式安装包与应用内更新文件。
 
 ## 点击下载
 
-- **[Windows 64 位版：点击这里下载 ZIP](https://github.com/xiandan-superman/answer-book-platform-releases/releases/download/v0.9.0-beta/answer-book-platform-0.9.0-beta-windows-x86_64.zip)**
-- **[Mac Apple 芯片版：点击这里下载 DMG](https://github.com/xiandan-superman/answer-book-platform-releases/releases/download/v0.9.0-beta/answer-book-platform-0.9.0-beta-macos-arm64.dmg)**
+- **[Windows 64 位版：点击这里下载 ZIP](https://github.com/xiandan-superman/answer-book-platform-releases/releases/download/v0.9.0/answer-book-platform-0.9.0-windows-x86_64.zip)**
+- **[Mac Apple 芯片版：点击这里下载 DMG](https://github.com/xiandan-superman/answer-book-platform-releases/releases/download/v0.9.0/answer-book-platform-0.9.0-macos-arm64.dmg)**
 
 下载后：
 
@@ -17,5 +17,4 @@
 
 - API 密钥由使用者在软件中自行填写，调用费用由使用者承担。
 - 软件支持检查更新；发现新版本后会下载经过 SHA256 校验的安装包。
-- 当前为内部体验版，安装包尚未进行 Apple 或 Microsoft 代码签名，首次运行时系统可能显示安全提示。
-- 本软件按内部评估许可提供，请勿未经授权传播或用于正式商业部署。
+- 安装包尚未进行 Apple 或 Microsoft 代码签名，首次运行时系统可能显示安全提示。
