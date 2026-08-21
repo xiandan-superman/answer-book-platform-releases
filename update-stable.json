@@ -1,18 +1,18 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.4",
-  "release_tag": "v0.9.4",
-  "notes": "真题解析与生题平台 0.9.4\n\n- Mac（Apple 芯片）与 Windows 64 位安装包\n- 安装包由 GitHub Actions 从已确认源码自动构建\n- 应用内更新会先校验 SHA256",
+  "version": "0.9.5",
+  "release_tag": "v0.9.5",
+  "notes": "真题解析与生题平台 0.9.5\n\n- Mac（Apple 芯片）与 Windows 64 位安装包\n- 安装包由 GitHub Actions 从已确认源码自动构建\n- 应用内更新会先校验 SHA256",
   "platforms": {
     "macos-arm64": {
-      "asset_name": "answer-book-platform-0.9.4-macos-arm64.dmg",
-      "size_bytes": 154078371,
-      "sha256": "9a41e8e931e531ab6857e91433e35c0713c3605bbf858a926712b31287888c10"
+      "asset_name": "answer-book-platform-0.9.5-macos-arm64.dmg",
+      "size_bytes": 152567804,
+      "sha256": "6279af1ebe29218fb54b61745eec29719b793c53bdb64bcb9d0db19efbd5e2d4"
     },
     "windows-x86_64": {
-      "asset_name": "answer-book-platform-0.9.4-windows-x86_64.zip",
-      "size_bytes": 74114722,
-      "sha256": "e9a1108f43b858f98159cb7448cb4edf731b2a518167430fdc0f3036974d7611"
+      "asset_name": "answer-book-platform-0.9.5-windows-x86_64.zip",
+      "size_bytes": 74136441,
+      "sha256": "04c2a7917bfc26434edf0a50da5597cc52dcf60e5952a473a571892a0676ef1d"
     }
   }
 }
