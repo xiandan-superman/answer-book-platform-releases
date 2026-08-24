@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.13",
-  "release_tag": "v0.9.13",
-  "notes": "真题解析与生题平台 0.9.13\n\n- 推荐使用源码启动版\n- 首次启动自动创建独立 Python 环境并安装依赖\n- 应用内更新会校验 SHA256，用户数据保存在程序目录之外",
+  "version": "0.9.14",
+  "release_tag": "v0.9.14",
+  "notes": "真题解析与生题平台 0.9.14\n\n- 推荐使用源码启动版\n- 首次启动自动创建独立 Python 环境并安装依赖\n- 应用内更新会校验 SHA256，用户数据保存在程序目录之外",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.13-source.zip",
-      "size_bytes": 193097619,
-      "sha256": "a6292f0efca0ad891c279b38ff91743600f74bf6f7fabf897fdafedead205166",
+      "asset_name": "answer-book-platform-0.9.14-source.zip",
+      "size_bytes": 193100723,
+      "sha256": "be05d78b8754b912968a2ee6ce967e4f2c265582f2df1840337d62d60a84ae3f",
       "dependency_fingerprint": "fdfb631d15a2678811e51f9862c51bb2704d8ccf743b37e10ac536edacd9f647"
     }
   }
