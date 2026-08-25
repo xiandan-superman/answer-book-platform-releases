@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.23",
-  "release_tag": "v0.9.23",
-  "notes": "## [0.9.23] - 2026-08-25\n\n### 新增\n\n- 新增“元衡 API”服务商，使用流式 Responses API，可在 API 配置页独立测试和保存 `YUANHENG_API_KEY`。\n- 仅接入已完成真实请求验证的 `gpt-5.6-luna` 和 `gpt-5.6-terra`，两者均支持文本、严格 JSON Schema、图片理解和 SSE 流式输出。\n\n### 修复\n\n- 修复 B.AI 开启 Cloudflare 客户端特征检查后，软件正常模型请求被误拦截为 `403 / error 1010` 的问题。\n- 浏览器兼容 `User-Agent` 仅对 B.AI 启用，不改变其他服务商的默认请求头。\n\n### 验证与安全\n\n- 修复后已用软件自身客户端真实调用 B.AI `deepseek-v4-flash`，成功返回预期内容。\n- 新增服务商的 Key 仍只保存在系统用户数据目录，程序更新不会覆盖，测试 Key 不会写入仓库或发布包。",
+  "version": "0.9.24",
+  "release_tag": "v0.9.24",
+  "notes": "## [0.9.24] - 2026-08-26\n\n### 模型接入与兼容性\n\n- 按“服务商 + 具体模型”分别选择接口、思考强度、输出长度和支持参数，不再对同一服务商的所有模型套用相同协议。\n- Gemini 改用 Chat Completions，并严格区分思考过程与最终答案；Claude 优先使用官方 Messages 接口和结构化 JSON 输出。\n- 修复百炼视觉模型、OpenRouter 的 GLM/MiniMax 以及火山方舟部分 GLM/Kimi 模型的接口兼容问题；MiniMax 自动剥离思考标签。\n- 修正 DeepSeek Responses 地址及不支持的 `store` 参数；`qwen-vl-ocr` 最大输出单独限制为 4096 tokens。\n- 灵算接入模型统一恢复官方默认思考强度；重试降级时 Gemini 最低使用 `minimal`，Grok 最低使用 `low`，不再发送各模型不支持的采样参数。\n\n### 生题稳定性与重试\n\n- 延长首个响应等待和单次生成时限，允许复杂题目在约 5～8 分钟内完成，减少慢响应误判。\n- 连续失败后暂停 20 秒再进行单次恢复探测；服务恢复即继续生题，熔断期间不再对所有剩余题目重复发起无效请求。\n- 每道题独立享有最多 4 次请求机会，不再与其他题目共享重试额度；JSON 格式错误也会按正常生成、降低思考、强化结构约束和兼容接口等策略重新尝试。\n- 增强异常响应、控制字符、思考片段和公式包装的识别修复，避免模型已经返回有效内容却被错误判定为整题失败。\n\n### Word 下载与公式修复\n\n- 修复专项练习下载重复触发、下载到空 Word 文件，以及历史成功任务无法正常导出的问题；浏览器只会下载一次经过服务端校验的有效文件。\n- 修复填空题公式后的横线、网关返回异常 Unicode 控制字符以及历史题目公式包装问题，确保题目正文、答案和原生 Word 公式完整可见。\n- 导出前增加文件内容与公式可渲染性检查；无内容或无效文档会被明确拒绝，不再交付空白文件。\n\n### 验证与升级说明\n\n- 使用用户原始截图、原始任务配置分别复测 Luna 与 Gemini，两项任务均完整生成 15/15 道题；历史任务及新任务的 Word 下载均已验证有正文和原生公式。\n- 本地回归验证通过 1588 项；本次更新不包含用户 API Key、运行中任务、教材、日志或历史输出，升级继续保留现有用户数据。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.23-source.zip",
-      "size_bytes": 193133728,
-      "sha256": "8c8cbe71a522ef298b899219bf8f85b45fb0bbd987b38077db1435e2282c987b",
+      "asset_name": "answer-book-platform-0.9.24-source.zip",
+      "size_bytes": 193152854,
+      "sha256": "c3373c34cdd716f5b68f9982d407e2fc413d3bb8d545312f070ea75f8449dc98",
       "dependency_fingerprint": "46ff1ada3c7947b7d817e1ecb0399e48c372318104d93c6fbc2b4b5db34f4f92",
       "dependency_fingerprints": {
         "py39": "dee76eabd573d023d2a819a38e2ed808bec80a342cb09c4bc8c7c676ab041c28",
