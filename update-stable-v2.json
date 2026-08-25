@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.20",
-  "release_tag": "v0.9.20",
-  "notes": "真题解析与生题平台 0.9.20\n\n- 推荐使用源码启动版\n- 首次启动自动创建独立 Python 环境并安装依赖\n- 应用内更新会校验 SHA256，用户数据保存在程序目录之外",
+  "version": "0.9.22",
+  "release_tag": "v0.9.22",
+  "notes": "## [0.9.22] - 2026-08-25\n\n### 新增\n\n- 新增 OpenRouter 服务商，可在“API 配置”页面独立测试和保存 `OPENROUTER_API_KEY`。\n- 首批接入 `stealth/ox-alpha`，支持文本与图片理解，并使用已验证的流式 Responses API。\n- 新增 `z-ai/glm-5.2:free` 文本模型和 `minimax/minimax-m3:free` 多模态模型。\n- 用户可见任务名称会将三个模型分别简写为“Ox Alpha”、“GLM”和“MiniMax”。\n\n### 验证与注意事项\n\n- Ox Alpha 的普通文本、JSON 结构化输出和程序实际流式 Responses 调用均已通过真实请求验证。\n- OpenRouter 官方模型信息声明 Ox Alpha 支持图片输入；测试期间 Stealth 上游共享池曾对图片请求返回临时 429，遇到时应稍后重试。\n- MiniMax M3 Free 的文本、JSON 结构化输出和图片理解均已通过真实请求验证；GLM 5.2 Free 模型可见，但测试时上游免费共享池持续限流，暂未完成生成成功验证。\n- API Key 仍只保存在系统用户数据目录，程序更新不会覆盖，也不会写入任务产物或发布包。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.20-source.zip",
-      "size_bytes": 193126399,
-      "sha256": "82e0c8b0d009902a9c29d7f34cf54361a18e8d50f5af149c6180360af7ea5574",
+      "asset_name": "answer-book-platform-0.9.22-source.zip",
+      "size_bytes": 193131722,
+      "sha256": "e5854161fb24a9ef7b4cbf303a679b9d466782a883b787e3488f9cb1654e2e1b",
       "dependency_fingerprint": "46ff1ada3c7947b7d817e1ecb0399e48c372318104d93c6fbc2b4b5db34f4f92",
       "dependency_fingerprints": {
         "py39": "dee76eabd573d023d2a819a38e2ed808bec80a342cb09c4bc8c7c676ab041c28",
