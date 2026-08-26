@@ -1,21 +1,21 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.24",
-  "release_tag": "v0.9.24",
-  "notes": "## [0.9.24] - 2026-08-26\n\n### 模型接入与兼容性\n\n- 按“服务商 + 具体模型”分别选择接口、思考强度、输出长度和支持参数，不再对同一服务商的所有模型套用相同协议。\n- Gemini 改用 Chat Completions，并严格区分思考过程与最终答案；Claude 优先使用官方 Messages 接口和结构化 JSON 输出。\n- 修复百炼视觉模型、OpenRouter 的 GLM/MiniMax 以及火山方舟部分 GLM/Kimi 模型的接口兼容问题；MiniMax 自动剥离思考标签。\n- 修正 DeepSeek Responses 地址及不支持的 `store` 参数；`qwen-vl-ocr` 最大输出单独限制为 4096 tokens。\n- 灵算接入模型统一恢复官方默认思考强度；重试降级时 Gemini 最低使用 `minimal`，Grok 最低使用 `low`，不再发送各模型不支持的采样参数。\n\n### 生题稳定性与重试\n\n- 延长首个响应等待和单次生成时限，允许复杂题目在约 5～8 分钟内完成，减少慢响应误判。\n- 连续失败后暂停 20 秒再进行单次恢复探测；服务恢复即继续生题，熔断期间不再对所有剩余题目重复发起无效请求。\n- 每道题独立享有最多 4 次请求机会，不再与其他题目共享重试额度；JSON 格式错误也会按正常生成、降低思考、强化结构约束和兼容接口等策略重新尝试。\n- 增强异常响应、控制字符、思考片段和公式包装的识别修复，避免模型已经返回有效内容却被错误判定为整题失败。\n\n### Word 下载与公式修复\n\n- 修复专项练习下载重复触发、下载到空 Word 文件，以及历史成功任务无法正常导出的问题；浏览器只会下载一次经过服务端校验的有效文件。\n- 修复填空题公式后的横线、网关返回异常 Unicode 控制字符以及历史题目公式包装问题，确保题目正文、答案和原生 Word 公式完整可见。\n- 导出前增加文件内容与公式可渲染性检查；无内容或无效文档会被明确拒绝，不再交付空白文件。\n\n### 验证与升级说明\n\n- 使用用户原始截图、原始任务配置分别复测 Luna 与 Gemini，两项任务均完整生成 15/15 道题；历史任务及新任务的 Word 下载均已验证有正文和原生公式。\n- 本地回归验证通过 1588 项；本次更新不包含用户 API Key、运行中任务、教材、日志或历史输出，升级继续保留现有用户数据。",
+  "version": "0.9.28",
+  "release_tag": "v0.9.28",
+  "notes": "## [0.9.28] - 2026-08-27\n\n### 发布门禁修正\n\n- 明确公式边界收缩结果的可空类型处理，使锁定 Python 3.11 的 Mypy 门禁与实际非空分支保持一致；运行逻辑不变。\n- 业务功能与前两个候选版本一致；0.9.26、0.9.27 失败标签继续保留，不移动、不复用。\n- 发布手册补充逐层门禁经验：修复当前阻断项后，必须继续运行到完整工作流结束，不能以“上一层已通过”判断发布完成。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.24-source.zip",
-      "size_bytes": 193152854,
-      "sha256": "c3373c34cdd716f5b68f9982d407e2fc413d3bb8d545312f070ea75f8449dc98",
-      "dependency_fingerprint": "46ff1ada3c7947b7d817e1ecb0399e48c372318104d93c6fbc2b4b5db34f4f92",
+      "asset_name": "answer-book-platform-0.9.28-source.zip",
+      "size_bytes": 193209426,
+      "sha256": "f5c52e7e6385a6b873864ce38079f94a418f304c163132b2f6d3056ecd6f4f91",
+      "dependency_fingerprint": "9abc11bfbbc84e8184284a43b5284d6bd0a87f37bad7190b77d4e6e8be180c71",
       "dependency_fingerprints": {
-        "py39": "dee76eabd573d023d2a819a38e2ed808bec80a342cb09c4bc8c7c676ab041c28",
-        "py39-windows": "72e8d0977701aefd2b5f7784372e57149bdf4552521ec7e5b1ad61468bae093d",
-        "py310": "99646f01ce7edd5056e399fb4524f593729ac68bb6f71d75c695e057ae8af659",
-        "py310-windows": "fdfb631d15a2678811e51f9862c51bb2704d8ccf743b37e10ac536edacd9f647",
-        "py311": "46ff1ada3c7947b7d817e1ecb0399e48c372318104d93c6fbc2b4b5db34f4f92",
-        "py311-windows": "1a702d8acc7dcfcefc0ed9a3432ef6982fd1dfa9175bffe2a64b9eb946332b8b"
+        "py39": "a75c976b39c3b3a76941202cda1faf2d47bc22c4d719456260fc2ebc4c07cf84",
+        "py39-windows": "55336b8f7627b4838008ff0b756b3d4e5d236a787bbc62bcf329a976165ee705",
+        "py310": "3d6ab6259d39d3c7cff1957e4b87858b2f01e4dc34125a091df4b2ea1f15b9c0",
+        "py310-windows": "fc4817855e54afd8a17338d8d347c1a60191e06192233475135a05de638c06b4",
+        "py311": "9abc11bfbbc84e8184284a43b5284d6bd0a87f37bad7190b77d4e6e8be180c71",
+        "py311-windows": "195c7697ae47e0ab744622e7473993f6f3255e3ded90fcdfc6cc8256ae43a29a"
       }
     }
   }
