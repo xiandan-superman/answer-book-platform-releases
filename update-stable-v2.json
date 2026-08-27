@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.30",
-  "release_tag": "v0.9.30",
-  "notes": "## [0.9.30] - 2026-08-27\n\n### Windows 启动修复\n\n- 修复 Windows 转交到专用 Python 环境时，因 `%LOCALAPPDATA%\\Answer Book Platform` 路径含空格而被拆成错误参数、双击 BAT 无法启动的问题。\n- Windows 根目录新增显眼的 `启动平台.bat`，英文入口继续兼容；两个入口统一经过可记录失败原因的标准库引导器，不再依赖 PowerShell 或静默退出。\n- 启动器未能显示时会弹出错误并给出 `launcher-bootstrap.log` 位置，便于直接定位用户机故障。\n\n### 启动器识别与发布包\n\n- 启动页、首次准备窗口、系统托盘和 Windows 桌面程序统一使用项目书本 Logo；Windows EXE 内嵌多尺寸图标。\n- 正式源码附件改用白名单打包器生成，并在发布前反向检查启动文件、Logo、版本清单及敏感/运行数据排除规则，不再直接发布未筛选的 Git 归档。\n- GitHub 发布页明确标出正确附件，防止普通用户误下页面底部自动生成的 `Source code (zip)`。\n- 本次更新不包含或覆盖 API Key、任务、教材、日志和历史输出。",
+  "version": "0.9.31",
+  "release_tag": "v0.9.31",
+  "notes": "## [0.9.31] - 2026-08-28\n\n### 三条业务线的质量与交付\n\n- 灵算 Google 新增 Gemini 3.7 Flash 低、中、高推理三个实际模型入口；保留既有默认模型和本地 Key，不会因升级强制改选。低推理档已完成真题解析、按题出题和知识点出题的固定小样本验证。\n- 按题与知识点题目卷只展示明确标记为题干给定条件的结构化公式，不再把要求学生推导的关系式附在题目后方直接泄露答案；旧导出缓存同步失效。\n- Word/PDF 一致性审计现在分别核对普通文字、公式、表格文字和图片，并明确报告 `compared` 或 `not_comparable`，不再把零文本锚点静默当作已完成比较。\n\n### 失败恢复与用户体验\n\n- 真题流程在教材检索失败后重试时，可安全复用与题面、教材集合、模型路由和政策完全一致的题面提取、题目理解、知识规划与图件规划，避免重复模型调用；任何输入或策略变化都会重新计算。\n- 失败的真题任务显示真实停止阶段和未完成进度，不再以“失败 100%”误导用户；文件路径和日志事件默认收进技术详情，常见检索错误改为可理解的中文提示。\n- 修复按题出题页面“保留并新建”“恢复上一份”按钮无反应的问题：空白自动草稿不再伪装成可恢复历史，操作失败会显示原因，任务详情也不会被后台任务列表刷新覆盖。\n\n### 发布边界\n\n- 本次仍为双击 BAT 启动本地网页的源码版本，不是桌面 App/EXE；不会包含或覆盖 API Key、任务、教材、日志、模型诊断和历史输出。\n- 三线真实验证属于受控小样本。专项生题仍按现有产品契约只生成题目卷、不生成答案卷；默认语义审查的成本与答案闭环方案留待下一阶段决策。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.30-source.zip",
-      "size_bytes": 19104013,
-      "sha256": "5c69d65650268c0ce1ec57a6758be153c4bb33a081f36a7cce2d2b39b88b37af",
+      "asset_name": "answer-book-platform-0.9.31-source.zip",
+      "size_bytes": 19112518,
+      "sha256": "653bf63c038a4878542e10432909ffefd8c92e713e3585abb648f28cd2b4f68f",
       "dependency_fingerprint": "9abc11bfbbc84e8184284a43b5284d6bd0a87f37bad7190b77d4e6e8be180c71",
       "dependency_fingerprints": {
         "py39": "a75c976b39c3b3a76941202cda1faf2d47bc22c4d719456260fc2ebc4c07cf84",
@@ -17,11 +17,6 @@
         "py311": "9abc11bfbbc84e8184284a43b5284d6bd0a87f37bad7190b77d4e6e8be180c71",
         "py311-windows": "195c7697ae47e0ab744622e7473993f6f3255e3ded90fcdfc6cc8256ae43a29a"
       }
-    },
-    "windows-x86_64": {
-      "asset_name": "answer-book-platform-0.9.30-windows-x86_64.zip",
-      "size_bytes": 72017315,
-      "sha256": "197403394a09700a11f581e5ebdb8ed426381f3c25c86e91ec10e818c068fae8"
     }
   }
 }
