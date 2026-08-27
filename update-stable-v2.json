@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.29",
-  "release_tag": "v0.9.29",
-  "notes": "## [0.9.29] - 2026-08-27\n\n### 模型路由与上下文质量\n\n- 新增统一的模型能力登记表，按“服务商 + 模型 + 任务阶段”明确文本、图片、结构化输出、上下文和输出预算，不再依赖模型名称猜测能力。\n- 真题解析、教材证据、答案生成、选择性复核、格式修复和生题流程按实际任务动态组装上下文，只输入当前阶段需要的材料，并为高风险或高质量阶段保留更充足的输入输出预算。\n- 生题流程增加独立的上下文规划、批次预算和降载策略；材料过长时优先保留题面、考点、证据和必要图片，避免把冗余材料整包发送导致成本、耗时和失败率同时上升。\n\n### 模型接入与默认组合\n\n- 新增 Google AI Studio Gemini 与智谱 BigModel 官方接口配置，并统一模型错误分类和用户可执行的处理提示。\n- 按题出题和知识点出题默认使用灵算 Gemini 3.6 Flash，作图兜底默认使用灵算 GPT-Image-2；两条业务线分别保存主模型、读图回退和生图模型，仍可手动调整。\n- 真题解析保留“质量优先”和“性价比”两套方案；质量优先默认由 GPT-5.6 Terra 完成主要解析与读图，GPT-5.6 Sol 只复核高风险题，两套方案均使用 GPT-Image-2 生图。\n- 用户界面不再展示火山方舟、阿里云百炼、商汤 SenseNova、OpenRouter、灵算 xAI 和灵算 Anthropic 的配置及模型入口；底层兼容和已有任务数据继续保留。\n\n### 失败恢复与使用体验\n\n- 生题批次允许保留已成功题目并对失败项给出明确原因和继续操作，不因单题异常丢弃整批有效产出。\n- 优化模型连接、配置缺失和生成失败的提示层级，默认展示用户可理解的原因与建议，技术细节按需展开。\n- 本次更新不包含或覆盖用户 API Key、任务、教材、日志、模型诊断和历史输出。",
+  "version": "0.9.30",
+  "release_tag": "v0.9.30",
+  "notes": "## [0.9.30] - 2026-08-27\n\n### Windows 启动修复\n\n- 修复 Windows 转交到专用 Python 环境时，因 `%LOCALAPPDATA%\\Answer Book Platform` 路径含空格而被拆成错误参数、双击 BAT 无法启动的问题。\n- Windows 根目录新增显眼的 `启动平台.bat`，英文入口继续兼容；两个入口统一经过可记录失败原因的标准库引导器，不再依赖 PowerShell 或静默退出。\n- 启动器未能显示时会弹出错误并给出 `launcher-bootstrap.log` 位置，便于直接定位用户机故障。\n\n### 启动器识别与发布包\n\n- 启动页、首次准备窗口、系统托盘和 Windows 桌面程序统一使用项目书本 Logo；Windows EXE 内嵌多尺寸图标。\n- 正式源码附件改用白名单打包器生成，并在发布前反向检查启动文件、Logo、版本清单及敏感/运行数据排除规则，不再直接发布未筛选的 Git 归档。\n- GitHub 发布页明确标出正确附件，防止普通用户误下页面底部自动生成的 `Source code (zip)`。\n- 本次更新不包含或覆盖 API Key、任务、教材、日志和历史输出。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.29-source.zip",
-      "size_bytes": 193255632,
-      "sha256": "850c0d950f1a476c8133d7cc6a123e01b9535df9d9c5277515d114f3a2c79edc",
+      "asset_name": "answer-book-platform-0.9.30-source.zip",
+      "size_bytes": 19104013,
+      "sha256": "5c69d65650268c0ce1ec57a6758be153c4bb33a081f36a7cce2d2b39b88b37af",
       "dependency_fingerprint": "9abc11bfbbc84e8184284a43b5284d6bd0a87f37bad7190b77d4e6e8be180c71",
       "dependency_fingerprints": {
         "py39": "a75c976b39c3b3a76941202cda1faf2d47bc22c4d719456260fc2ebc4c07cf84",
