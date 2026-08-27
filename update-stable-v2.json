@@ -17,11 +17,6 @@
         "py311": "9abc11bfbbc84e8184284a43b5284d6bd0a87f37bad7190b77d4e6e8be180c71",
         "py311-windows": "195c7697ae47e0ab744622e7473993f6f3255e3ded90fcdfc6cc8256ae43a29a"
       }
-    },
-    "windows-x86_64": {
-      "asset_name": "answer-book-platform-0.9.30-windows-x86_64.zip",
-      "size_bytes": 72017315,
-      "sha256": "197403394a09700a11f581e5ebdb8ed426381f3c25c86e91ec10e818c068fae8"
     }
   }
 }
