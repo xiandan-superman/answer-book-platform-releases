@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.44",
-  "release_tag": "v0.9.44",
-  "notes": "## [0.9.44] - 2026-09-04\n\n### MinerU 真实解析修复\n\n- MinerU 隔离环境改为安装官方 `pipeline` 可选依赖，补齐 `torch` 等本地推理组件；解析命令显式固定为 pipeline 后端，不再受上游默认 hybrid 后端变化影响。\n- 运行时标识现在同时绑定 MinerU 版本、Python 3.11、依赖文件摘要和 pipeline 配置；任务开始前会实际导入 `torch` 与 pipeline 模块自检，不再只凭 CLI 文件存在就误判安装成功。",
+  "version": "0.9.45",
+  "release_tag": "v0.9.45",
+  "notes": "## [0.9.45] - 2026-09-05\n\n### MinerU Windows OCR 依赖修复\n\n- 显式补齐 MinerU 3.4.5 pipeline 内置 OCR 代码使用、但上游未声明的 `six` 依赖；干净 Windows 环境的 pipeline 引擎导入自检可正常完成。\n- 修正 Word 浮动图片在 MinerU 结果中出现在纯题号之前时被误挂到上一题的问题；图片题现在保留图片输入，旧检查点会因题目分组策略升级而自动失效并重新解析。\n- 新增题目输入完整性门禁；没有题干、图片、表格或子题的条目会在调用模型前明确停止，不再延迟到知识检索阶段才以“无候选”报错。\n- 清除 MinerU 在完整大题标题外添加的 Markdown 加粗标记，恢复大题分区和题号身份，不再把多个大题误并到第一大题。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.44-source.zip",
-      "size_bytes": 15036516,
-      "sha256": "4b3c2061480beac47a3ae02eeb7671f24ae7eb5c8a8c1667f9c3c9a1936bd589",
+      "asset_name": "answer-book-platform-0.9.45-source.zip",
+      "size_bytes": 15038650,
+      "sha256": "96d5c680b22e7b26f54efe139abb11484e6a81a9b5f49eea7ad53a537cf34182",
       "dependency_fingerprint": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
       "dependency_fingerprints": {
         "py311": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
