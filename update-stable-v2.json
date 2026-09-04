@@ -1,27 +1,19 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.40",
-  "release_tag": "v0.9.40",
-  "notes": "## [0.9.40] - 2026-09-03\n\n### 模型失败恢复与大文件输入\n\n- 超时、连接中断、限流和服务端短时故障使用原服务商、原模型、原协议和原思考深度有界重试；不通过换模型、降思考或删减教材证据换取成功。\n- PDF、Word、图片和文本材料保留原文件、结构化文本和页面视觉表示；局部解析失败会判断同源表示是否足够，不再静默忽略 Word 公式、表格、内嵌图或扫描页。\n- 工具调用和多轮复核增加耐久恢复边界；结果不确定的外部操作不会盲目重放，修复始终以最新有效候选为输入。\n\n### Word 公式与交付完整性\n\n- 真题解析和两种生题入口共用公式分隔解析；跨行 `$$...$$` 会作为一个完整公式转为 Word 原生对象，不再被分段拆碎。\n- 生题的题干、选项、答案、解析、知识点、表格和图示文本统一执行 Word 公式预检；无法转换时给出题目和字段位置，不会静默输出原始 LaTeX。\n- Word/PDF/ZIP 修复、验收和公式交付改为先生成候选、重跑内容门禁并核对哈希，通过后再原子替换正式文件，失败不覆盖既有成品。\n\n### 发布与数据安全\n\n- 平台级修复现在必须同时审查真题解析、按题出题、知识点出题、历史任务恢复和最终交付，避免只修复一个页面或一种任务。\n- 更新仅替换程序源码，不包含或覆盖 API Key、任务、教材、日志和历史输出。正式源码版继续由 `main` 完整门禁通过后自动创建标签与公开附件。",
+  "version": "0.9.41",
+  "release_tag": "v0.9.41",
+  "notes": "## [0.9.41] - 2026-09-04\n\n### 文档执行与教学排版\n\n- Word 执行新增 OfficeCLI B 引擎并设为默认，按“创建、原子批处理、保存、校验、关闭”完成真题与练习文档；现有 Python/OMML A 引擎完整保留，可通过配置明确切回，B 失败不会静默换 A 掩盖问题。\n- 两个引擎继续执行平台自己的试题、答案、公式、图片、表格、页眉页脚、页码和教学排版规则；公式、图片和最终内容门禁未通过时不交付。\n\n### 解析、结构化纠错与数学校验\n\n- PDF/DOCX 主解析统一接入 MinerU 3.4.5，并在用户数据目录按需准备隔离运行环境；解析失败会明确停止，不再静默回退到能力较弱的旧解析链。\n- 真题答案和两类练习生成增加 Pydantic 正式结构合同；Instructor 负责把结构校验错误回灌给同一模型并最多纠错一次，调用仍计入原任务预算、并发和用量记录。\n- 数学一致性增加 SymPy、latex2sympy2_extended 与 Math-Verify 隔离判等，只补充原有数值规则无法判断且符号边界安全的场景，不替代单位、百分数和教学业务规则。\n\n### 模型用量、稳定性与运行环境\n\n- 模型调用上限改为按任务类型、实际题量和教材证据链估算，默认冻结在预估使用量约 180%，同时保留 120 次下限和 500 次硬上限；失败调用、Token、耗时和并发限制仍独立计数。\n- 灵算并发进一步收紧；LiteLLM 仅以默认 10% 做有界影子对照，不重试、不替换正式响应，队列满或影子失败均不影响用户任务。\n- 源码运行和正式发布统一升级到 Python 3.11；首次使用 MinerU、OfficeCLI 或新增校验能力时可能需要下载并准备对应隔离依赖，旧运行环境保留用于回滚，不包含或覆盖 API Key、任务、教材、日志和历史输出。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.40-source.zip",
-      "size_bytes": 14976893,
-      "sha256": "c5a2df065f6fcdaddb7835e1667411ca60e1e2bd7652b52e3101d957d427477b",
-      "dependency_fingerprint": "fdc97e8f5cfea0286e2ee703e79c6e623e0f61196759b01cbdd216b20e6ec8c4",
+      "asset_name": "answer-book-platform-0.9.41-source.zip",
+      "size_bytes": 15031278,
+      "sha256": "e350088dfd2ff0d79fa93ad01bd5e6e1db6004e613dbe2f9f4829f836e666023",
+      "dependency_fingerprint": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
       "dependency_fingerprints": {
-        "py39": "97983111c31de9b7a8e14cc55e9a29f752169822c677016db6e3dbc187ebb692",
-        "py39-macos": "1ad26d1c6e5dbf8677a6ebaa15101c0dee43b4d5a2b951aa4cd27ebb63820f00",
-        "py39-linux": "97983111c31de9b7a8e14cc55e9a29f752169822c677016db6e3dbc187ebb692",
-        "py39-windows": "c968cc51c9b0f9ed29867532b8e2289d811d1dfe96503417ce97ba0519a220e9",
-        "py310": "43d914789aca885fb968800f5dbaddcb9c51f300c418a13672e7e574a6d1537e",
-        "py310-macos": "43d914789aca885fb968800f5dbaddcb9c51f300c418a13672e7e574a6d1537e",
-        "py310-linux": "43d914789aca885fb968800f5dbaddcb9c51f300c418a13672e7e574a6d1537e",
-        "py310-windows": "1c2b2362bd9b65bd36d5456cffc02c2c7d57c5748d2e13c7802dc530ec452a93",
-        "py311": "fdc97e8f5cfea0286e2ee703e79c6e623e0f61196759b01cbdd216b20e6ec8c4",
-        "py311-macos": "2e0891702b3547dfa14b1500730540d660be3e1be38507a90c4d018e9e6764cd",
-        "py311-linux": "fdc97e8f5cfea0286e2ee703e79c6e623e0f61196759b01cbdd216b20e6ec8c4",
-        "py311-windows": "547acd2b874f1b47321904cb4060ec18d77b7aa4488d61b347e845db4419deea"
+        "py311": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
+        "py311-macos": "289cab595f7cbd6adc2197ec0f9b8846d3cfc0fcf2c809e37aee507bcf0a4e45",
+        "py311-linux": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
+        "py311-windows": "8de5e49dbf3cc10984698375a6ad497fbfde3861480c37395a59d42cd55f0313"
       }
     }
   }
