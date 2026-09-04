@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.43",
-  "release_tag": "v0.9.43",
-  "notes": "## [0.9.43] - 2026-09-04\n\n### Windows 首次启动修复\n\n- Python 3.11 虚拟环境如果因 Windows `pythonw.exe` 启动而缺少 pip，启动器现在会自动调用 Python 自带的 `ensurepip` 修复并复核，再安装锁定依赖；不需要删除其他 Python 版本或用户数据。",
+  "version": "0.9.44",
+  "release_tag": "v0.9.44",
+  "notes": "## [0.9.44] - 2026-09-04\n\n### MinerU 真实解析修复\n\n- MinerU 隔离环境改为安装官方 `pipeline` 可选依赖，补齐 `torch` 等本地推理组件；解析命令显式固定为 pipeline 后端，不再受上游默认 hybrid 后端变化影响。\n- 运行时标识现在同时绑定 MinerU 版本、Python 3.11、依赖文件摘要和 pipeline 配置；任务开始前会实际导入 `torch` 与 pipeline 模块自检，不再只凭 CLI 文件存在就误判安装成功。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.43-source.zip",
-      "size_bytes": 15035069,
-      "sha256": "ee98d04a7cf324200eba1305a77bcbff651ae520c789f0350dcac3eeabce0a57",
+      "asset_name": "answer-book-platform-0.9.44-source.zip",
+      "size_bytes": 15036516,
+      "sha256": "4b3c2061480beac47a3ae02eeb7671f24ae7eb5c8a8c1667f9c3c9a1936bd589",
       "dependency_fingerprint": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
       "dependency_fingerprints": {
         "py311": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
