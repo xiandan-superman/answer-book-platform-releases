@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.42",
-  "release_tag": "v0.9.42",
-  "notes": "## [0.9.42] - 2026-09-04\n\n### Python 3.11 与 MinerU 安装修复\n\n- 启动器现在固定选择 Python 3.11，不再把 Python 3.12、3.13 或 3.14 误认为平台运行环境；其他 Python 版本可以继续并排保留，无需卸载。\n- 检测到过去由错误 Python 版本创建的 `python-env-py311` 时，会先改名保存为带时间戳的隔离备份，再创建真正的 Python 3.11 环境，不会覆盖任务、教材、Key 或历史输出。\n- MinerU 使用独立的 Python 3.11 专用运行目录；不兼容解释器会在环境检查和任务解析前被明确拦截，不再进入 pip 后输出大段安装错误，也不会产生模型调用或 Token 消耗。",
+  "version": "0.9.43",
+  "release_tag": "v0.9.43",
+  "notes": "## [0.9.43] - 2026-09-04\n\n### Windows 首次启动修复\n\n- Python 3.11 虚拟环境如果因 Windows `pythonw.exe` 启动而缺少 pip，启动器现在会自动调用 Python 自带的 `ensurepip` 修复并复核，再安装锁定依赖；不需要删除其他 Python 版本或用户数据。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.42-source.zip",
-      "size_bytes": 15034483,
-      "sha256": "ec58da21989af20dcac7aaddeb5c52ca5608cab932337003de997cca459a3c98",
+      "asset_name": "answer-book-platform-0.9.43-source.zip",
+      "size_bytes": 15035069,
+      "sha256": "ee98d04a7cf324200eba1305a77bcbff651ae520c789f0350dcac3eeabce0a57",
       "dependency_fingerprint": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
       "dependency_fingerprints": {
         "py311": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
