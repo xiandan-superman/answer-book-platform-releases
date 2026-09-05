@@ -1,19 +1,19 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.45",
-  "release_tag": "v0.9.45",
-  "notes": "## [0.9.45] - 2026-09-05\n\n### MinerU Windows OCR 依赖修复\n\n- 显式补齐 MinerU 3.4.5 pipeline 内置 OCR 代码使用、但上游未声明的 `six` 依赖；干净 Windows 环境的 pipeline 引擎导入自检可正常完成。\n- 修正 Word 浮动图片在 MinerU 结果中出现在纯题号之前时被误挂到上一题的问题；图片题现在保留图片输入，旧检查点会因题目分组策略升级而自动失效并重新解析。\n- 新增题目输入完整性门禁；没有题干、图片、表格或子题的条目会在调用模型前明确停止，不再延迟到知识检索阶段才以“无候选”报错。\n- 清除 MinerU 在完整大题标题外添加的 Markdown 加粗标记，恢复大题分区和题号身份，不再把多个大题误并到第一大题。",
+  "version": "0.9.46",
+  "release_tag": "v0.9.46",
+  "notes": "## [0.9.46] - 2026-09-05\n\n### Word 交付与图片流程修复\n\n- 真题解析与辅助功能中的题目解析恢复题目结构、题型和分值人工确认弹窗；用户确认后任务才继续生成。\n- 删除混合云任务转交机制、配置和界面开关，所有解析任务统一在本机运行。\n- 任务管理中的真题/题目解析名称优先显示答案生成阶段账本记录的真实调用模型；首次调用前显示用户配置的答案模型，不再固定显示基础 DeepSeek 路由。\n- 真题解析只交付 Word，不再生成 PDF 和页面 PNG，也不再因缺少 PDF 阻断交付；旧任务的渲染参数仍可兼容，历史文件保留。\n- 移除历史独立生成图视觉审查及后置修图，保留负责内容的主模型看图采用流程，以及图片缺失、损坏和引用检查。\n- Word 生成统一使用 Pandoc C 引擎，淘汰 A/B 及其回退路径；新任务和历史重建都使用 C，保留反应箭头条件及原有排版合同。环境检查准备固定版本的官方运行时并验证压缩包与二进制哈希。\n- 取消默认固定的整任务 token 硬上限，继续统计实际用量；保留调用次数、时长、传输重试、修复轮数和工具循环等防失控限制。显式配置的正数 token 预算仍有效。\n- 修复公式反复规范化产生嵌套、正文分组括号被截断，以及已生成图片在 Windows 保存时的文件同步问题。\n- 改善灵算多协议通道的共享并发控制及有界传输重试；图片工具采用状态、诊断和修复候选校验保持一致。\n- 已有内容警告继续随 Word 保留，不会因文档转换成功而自动升级为正式无问题验收。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.45-source.zip",
-      "size_bytes": 15038650,
-      "sha256": "96d5c680b22e7b26f54efe139abb11484e6a81a9b5f49eea7ad53a537cf34182",
-      "dependency_fingerprint": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
+      "asset_name": "answer-book-platform-0.9.46-source.zip",
+      "size_bytes": 15017215,
+      "sha256": "cd8b72b4d955ca7ec3950c8b4e69aac1da338d7ed0211f808df9e8a3a1fa18a2",
+      "dependency_fingerprint": "d8fa12b5350ed066aec7524ccdaceb41ffd53d117d11f17a5d548a0820f06cce",
       "dependency_fingerprints": {
-        "py311": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
-        "py311-macos": "289cab595f7cbd6adc2197ec0f9b8846d3cfc0fcf2c809e37aee507bcf0a4e45",
-        "py311-linux": "143d85238f2dcdd2df726b0049637d533d58ee1e9d99a53925378f88e1113537",
-        "py311-windows": "8de5e49dbf3cc10984698375a6ad497fbfde3861480c37395a59d42cd55f0313"
+        "py311": "d8fa12b5350ed066aec7524ccdaceb41ffd53d117d11f17a5d548a0820f06cce",
+        "py311-macos": "2b7fc8eb8853b718aa5f6a50e68e3994f16b44bf4746d6d772584cf1158030bc",
+        "py311-linux": "d8fa12b5350ed066aec7524ccdaceb41ffd53d117d11f17a5d548a0820f06cce",
+        "py311-windows": "aa2fa1d4f9d7ad7cf859104e223ce0678b23069af1ff9ae446049f2abd41dce8"
       }
     }
   }
