@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.56",
-  "release_tag": "v0.9.56",
-  "notes": "## [0.9.56] - 2026-09-18\n\n### 路由与公式显示\n\n- 将 Gemini、GPT、Claude 和生图智能路由统一归入独立的“智能路由”分组。\n- 修复选择模型后模型列表跳回顶部的问题，保留当前分组和滚动位置。\n- 优化 LaTeX 公式渲染；单个公式失败不会影响整页其他公式，并保留可读的源码提示。\n\n### 验证范围\n\n- 前端相关测试通过，线上 Claude 智能路由真实最小请求验证通过。",
+  "version": "0.9.57",
+  "release_tag": "v0.9.57",
+  "notes": "## [0.9.57] - 2026-09-19\n\n### 智能路由配置\n\n- API 配置页只保留统一的 Cloudflare 智能路由入口，不再将 Claude 智能路由显示为独立 Key 配置。\n- GPT、Gemini、Claude 和生图智能路由继续共享 Cloudflare 地址与用户访问 Key，并在任务模型选择中分别显示。\n\n### 验证范围\n\n- 前端语法和配置页面相关契约测试通过；本次不修改 Cloudflare 云端 Key、路线或用户数据。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.56-source.zip",
-      "size_bytes": 15295270,
-      "sha256": "d3957db5cc2cf6ccb6ef2b7fdc859d9245df5e5342a4a95acb8ad9d954385455",
+      "asset_name": "answer-book-platform-0.9.57-source.zip",
+      "size_bytes": 15295427,
+      "sha256": "7f2fad5c1ec45793a1cc86823a00687f72dc8b4d631d48a27f2444e94bb89599",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
