@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.54",
-  "release_tag": "v0.9.54",
-  "notes": "## [0.9.54] - 2026-09-16\n\n### 模型选择与目录\n\n- 教材引用、真题解析同级选择，保留独立请求方式与思考强度，生图必选；移除重复环境检查和独立读图、复核设置，复核跟随解析模型。\n- 按模型家族快速选择，压缩卡片与页面留白，改进任务页面布局。\n- 接入灵算 DeepSeek V4.1 Flash，按官方说明登记多模态；移除旧纯文本 DeepSeek 和指定五个百炼型号。\n\n### 解析、修复与任务展示\n\n- 区分单选、多选题并贯穿题型确认与审查。\n- 修复答案审查后已采用图片的位置和图注丢失；Windows 文件保存遇临时占用时有界重试。\n- 失败任务展示有证据支持的具体原因，区分缺图、保存失败与模型连接问题。\n- 修复 Word 格式页面脚本安全策略与接口错误响应，并完善相关回归。\n\n### 验证范围\n\n- 完整 Python 3.11 门禁通过：2438 项测试，覆盖率 70%；模型短测不代表完整教学任务质量验收。\n- Windows 实机与复杂真实 Word/PDF 场景未重跑；本次为源码更新版，不另发桌面安装包。",
+  "version": "0.9.55",
+  "release_tag": "v0.9.55",
+  "notes": "## [0.9.55] - 2026-09-18\n\n### 模型调用可靠性\n\n- 修复 Responses 工具回合在没有工具调用时仍重复循环的问题。\n- 对残缺 JSON 只进行一次基于干净上下文的格式修复，避免异常输出反复回灌导致上下文膨胀。\n- 增加输出边界诊断事件，并保留原始请求与响应的脱敏诊断记录。\n- 保留既有答案解析、公式、图片资产和结构质量门禁，修复候选不会覆盖已通过的内容。\n\n### 模型路由与任务展示\n\n- 完善多模态模型路由、生图路由和实际模型调用记录。\n- 新增灵算与 WawAPI 的 Claude 分组，接入 `claude-opus-5`、`claude-sonnet-5` 及 Claude 智能路由；不接入 fable 和 Top-API Claude。\n- 更新任务模型名称、路由状态和相关前端展示。\n\n### 验证范围\n\n- 本地工具循环、审查修复、答案生成和流水线定向回归通过。\n- 完整 Python 3.12 本地门禁通过：2552 项测试；Cloudflare Worker TypeScript 检查通过。\n- Claude 智能路由完成线上最小真实请求验证，返回正常；本次未提交用户机任务数据。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.54-source.zip",
-      "size_bytes": 15239703,
-      "sha256": "657af587a1d69b96dc5f860781b5d724ebe322a0629df921c31e4abadc288fee",
+      "asset_name": "answer-book-platform-0.9.55-source.zip",
+      "size_bytes": 15294608,
+      "sha256": "f2c0ba7e5e808f6cf0f9b6fe62d18bd688b6c84f321bae210ee2b7934133188c",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
