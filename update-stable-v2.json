@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.57",
-  "release_tag": "v0.9.57",
-  "notes": "## [0.9.57] - 2026-09-19\n\n### 智能路由配置\n\n- API 配置页只保留统一的 Cloudflare 智能路由入口，不再将 Claude 智能路由显示为独立 Key 配置。\n- GPT、Gemini、Claude 和生图智能路由继续共享 Cloudflare 地址与用户访问 Key，并在任务模型选择中分别显示。\n\n### 验证范围\n\n- 前端语法和配置页面相关契约测试通过；本次不修改 Cloudflare 云端 Key、路线或用户数据。",
+  "version": "0.9.58",
+  "release_tag": "v0.9.58",
+  "notes": "## [0.9.58] - 2026-09-19\n\n### 智能路由与任务管理\n\n- 修复点击“智能路由”分组后仅切换显示、实际仍提交上一个火山方舟模型的问题；切换模型分组时会同步选中该分组的候选模型。\n- 修复从任务管理打开任务时短暂显示上一个任务进度、结果或文件的问题；页面会先清空旧任务内容并只加载当前选择的任务。\n- 增强智能路由服务对 Cloudflare 配置类型和上游兼容错误的处理，避免有效配置被误判或单条不兼容路线阻断切换。\n\n### 手动更新\n\n- 修复源码版更新完成并重启服务后，旧网页因本机令牌变化持续停在 99% 的问题。\n- 补全解压、备份、依赖安装和启动阶段的进度收口；新版启动后自动完成至 100% 并刷新页面。\n\n### 验证范围\n\n- Python 3.11 完整门禁通过：2569 项测试，覆盖率 70%；Cloudflare Worker TypeScript 检查通过。\n- 未发起收费模型请求；Windows 实机、复杂真实 Word/PDF 场景和桌面安装包未在本次重跑。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.57-source.zip",
-      "size_bytes": 15295427,
-      "sha256": "7f2fad5c1ec45793a1cc86823a00687f72dc8b4d631d48a27f2444e94bb89599",
+      "asset_name": "answer-book-platform-0.9.58-source.zip",
+      "size_bytes": 15301495,
+      "sha256": "dce9df94fdbf693eae3ca9dedcc3d4425d01098b74e894fe105350f4a67a2ad3",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
