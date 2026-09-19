@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.58",
-  "release_tag": "v0.9.58",
-  "notes": "## [0.9.58] - 2026-09-19\n\n### 智能路由与任务管理\n\n- 修复点击“智能路由”分组后仅切换显示、实际仍提交上一个火山方舟模型的问题；切换模型分组时会同步选中该分组的候选模型。\n- 修复从任务管理打开任务时短暂显示上一个任务进度、结果或文件的问题；页面会先清空旧任务内容并只加载当前选择的任务。\n- 增强智能路由服务对 Cloudflare 配置类型和上游兼容错误的处理，避免有效配置被误判或单条不兼容路线阻断切换。\n\n### 手动更新\n\n- 修复源码版更新完成并重启服务后，旧网页因本机令牌变化持续停在 99% 的问题。\n- 补全解压、备份、依赖安装和启动阶段的进度收口；新版启动后自动完成至 100% 并刷新页面。\n\n### 验证范围\n\n- Python 3.11 完整门禁通过：2569 项测试，覆盖率 70%；Cloudflare Worker TypeScript 检查通过。\n- 未发起收费模型请求；Windows 实机、复杂真实 Word/PDF 场景和桌面安装包未在本次重跑。",
+  "version": "0.9.59",
+  "release_tag": "v0.9.59",
+  "notes": "## [0.9.59] - 2026-09-19\n\n### 任务管理\n\n- 修复展开运行详情后任务列表停止同步的问题；任务完成、失败或取消后会及时刷新，并保留已展开区域。\n- 失败或取消的真题任务按已持久化的当前阶段进度显示，任务管理与详情页使用同一进度事实。\n\n### 网络连接可靠性\n\n- 对智能路由、模型供应商、更新包和必要运行资源使用直连优先；仅在 DNS、TLS、超时或连接中断时回退到系统代理。\n- Cloudflare 智能路由预约增加有界重试，实际模型请求在原有硬超时和重试上限内先直连、失败再使用系统代理；鉴权和参数错误不重复发送。\n\n### 验证范围\n\n- Python 3.11 完整门禁通过：2576 项测试，覆盖率 70%；隔离 Chromium 发布回归连续两次通过。\n- 未发起收费模型请求；Windows 实机、复杂真实 Word/PDF 场景和桌面安装包未在本次重跑。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.58-source.zip",
-      "size_bytes": 15301495,
-      "sha256": "dce9df94fdbf693eae3ca9dedcc3d4425d01098b74e894fe105350f4a67a2ad3",
+      "asset_name": "answer-book-platform-0.9.59-source.zip",
+      "size_bytes": 15305391,
+      "sha256": "80d387028062e6e035ee8374025b423f44d37e66b0035a90489c839347b0a1be",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
