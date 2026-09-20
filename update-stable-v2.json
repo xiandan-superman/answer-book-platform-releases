@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.59",
-  "release_tag": "v0.9.59",
-  "notes": "## [0.9.59] - 2026-09-19\n\n### 任务管理\n\n- 修复展开运行详情后任务列表停止同步的问题；任务完成、失败或取消后会及时刷新，并保留已展开区域。\n- 失败或取消的真题任务按已持久化的当前阶段进度显示，任务管理与详情页使用同一进度事实。\n\n### 网络连接可靠性\n\n- 对智能路由、模型供应商、更新包和必要运行资源使用直连优先；仅在 DNS、TLS、超时或连接中断时回退到系统代理。\n- Cloudflare 智能路由预约增加有界重试，实际模型请求在原有硬超时和重试上限内先直连、失败再使用系统代理；鉴权和参数错误不重复发送。\n\n### 验证范围\n\n- Python 3.11 完整门禁通过：2576 项测试，覆盖率 70%；隔离 Chromium 发布回归连续两次通过。\n- 未发起收费模型请求；Windows 实机、复杂真实 Word/PDF 场景和桌面安装包未在本次重跑。",
+  "version": "0.9.60",
+  "release_tag": "v0.9.60",
+  "notes": "## [0.9.60] - 2026-09-20\n\n### 无 Microsoft Word 文档路线\n\n- 首页提供可关闭的无 Word 测试开关；开启后使用平台字体、LibreOffice 页面渲染和一致性验收，关闭后保留原 Microsoft Word 辅助路径。\n- 最终 Word 继续遵循原有字体、字号、公式、图片和页眉页脚标准；修复内部教材诊断进入学生成品仍能通过验收的问题。\n- “教材证据未找到”继续按原规则允许正式交付，仅在内部诊断文字实际泄漏到成品时阻断。\n\n### 智能路由可靠性\n\n- 为智能路由提供更长的任务时间预算，由路由服务完成候选重试和切换；只有明确返回全部候选失败时才判定候选失败。\n- 平台保护超时但未收到终态时标记为智能路由无响应或结果未知，避免误判具体模型失败。\n\n### MinerU 4.0.4\n\n- MinerU 4.0.4 正式替换旧解析器，统一提供 MiddleJson v2、Structured Content 和 Content List 结构化结果。\n- Office 文档使用 Flash 档位，PDF 默认 Standard；移除旧 A/B 入口和重复依赖，历史任务与旧缓存不重写。\n\n### 验证范围\n\n- 三份真实复杂 DOCX 解析和真题结构识别通过；无缓存解析成功生成结构化结果、图片和对照渲染。\n- Python 3.11 完整门禁通过：2619 项测试、覆盖率 71%；隔离 Chromium 回归连续两轮各 14 项通过，源码包反向检查和独立启动通过。\n- Windows 实机和桌面安装包不属于本次源码发布。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.59-source.zip",
-      "size_bytes": 15305391,
-      "sha256": "80d387028062e6e035ee8374025b423f44d37e66b0035a90489c839347b0a1be",
+      "asset_name": "answer-book-platform-0.9.60-source.zip",
+      "size_bytes": 15327068,
+      "sha256": "3fee13a54202ebdb09ce1a9eea259547e5248d69ab922dda625948126736762f",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
