@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.60",
-  "release_tag": "v0.9.60",
-  "notes": "## [0.9.60] - 2026-09-20\n\n### 无 Microsoft Word 文档路线\n\n- 首页提供可关闭的无 Word 测试开关；开启后使用平台字体、LibreOffice 页面渲染和一致性验收，关闭后保留原 Microsoft Word 辅助路径。\n- 最终 Word 继续遵循原有字体、字号、公式、图片和页眉页脚标准；修复内部教材诊断进入学生成品仍能通过验收的问题。\n- “教材证据未找到”继续按原规则允许正式交付，仅在内部诊断文字实际泄漏到成品时阻断。\n\n### 智能路由可靠性\n\n- 为智能路由提供更长的任务时间预算，由路由服务完成候选重试和切换；只有明确返回全部候选失败时才判定候选失败。\n- 平台保护超时但未收到终态时标记为智能路由无响应或结果未知，避免误判具体模型失败。\n\n### MinerU 4.0.4\n\n- MinerU 4.0.4 正式替换旧解析器，统一提供 MiddleJson v2、Structured Content 和 Content List 结构化结果。\n- Office 文档使用 Flash 档位，PDF 默认 Standard；移除旧 A/B 入口和重复依赖，历史任务与旧缓存不重写。\n\n### 验证范围\n\n- 三份真实复杂 DOCX 解析和真题结构识别通过；无缓存解析成功生成结构化结果、图片和对照渲染。\n- Python 3.11 完整门禁通过：2619 项测试、覆盖率 71%；隔离 Chromium 回归连续两轮各 14 项通过，源码包反向检查和独立启动通过。\n- Windows 实机和桌面安装包不属于本次源码发布。",
+  "version": "0.9.61",
+  "release_tag": "v0.9.61",
+  "notes": "## [0.9.61] - 2026-09-21\n\n### Word 原页题面与公式识别\n\n- DOCX 先由 Microsoft Word 渲染真实页面，模型和分值确认弹窗共用同一份逐题原页裁剪，不再生成或发送重复的合成题目截图。\n- 修复 MinerU 4.0.4 对 DOCX 段落边界空格的对齐缺陷；仅忽略段首和段尾空白差异，内部文字或公式内容不一致时仍按原安全规则停止。\n\n### 任务时长与稳定性\n\n- 任务复用程序启动时已通过的完整环境检查，避免每个任务重复执行 Word 和绘图重检。\n- 教材依据扩展可与其余题目的首轮复核并行；只有题目、原页裁剪、教材、模型、配置和程序指纹全部一致时，才跨任务复用知识规划、检索和依据选择。\n- 同一模型路线的明确网络或服务故障会短暂共享冷却，不影响同供应商的其他模型；图件生成后使用最新持久化结果审计，避免已生成图件被误报为缺失。\n\n### GitHub 发布\n\n- 发布前先快速检查发布与前端合同，尽早发现过期断言；完整质量门禁通过后只打包和验证一次，发布工作流直接复用已验证产物。\n- Chromium 按 Playwright 版本缓存，避免每次发布重复下载浏览器；GitHub Actions 升级到当前 Node 24 版本，减少重复下载、过期运行时和网络失败点。\n\n### Cloudflare 智能路由\n\n- 智能路由在 Cloudflare 内记录调用趋势和逐次换线明细，并提供 Cloudflare 原生仪表板与 D1 查询视图；平台前后端不接入该看板。\n- 保留 `router.qstarorange.com` 自定义域名；统计故障不会阻断文字、视觉或生图路由，且不保存题目、图片、模型回复或密钥。\n\n### 验证范围\n\n- Python 3.11 完整门禁、隔离 Chromium 回归、源码包反向校验和隔离启动结果以本次发布记录为准。\n- 未发起额外付费模型请求；Windows 实机和桌面安装包不属于本次源码发布。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.60-source.zip",
-      "size_bytes": 15327068,
-      "sha256": "3fee13a54202ebdb09ce1a9eea259547e5248d69ab922dda625948126736762f",
+      "asset_name": "answer-book-platform-0.9.61-source.zip",
+      "size_bytes": 15339237,
+      "sha256": "f527454d102ccc9e562b363b0982b9a19a3710d1a0d19930990b8448051dc2e9",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
