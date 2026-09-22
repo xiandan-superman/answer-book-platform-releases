@@ -1,13 +1,13 @@
 {
   "schema_version": "answer_book.update_manifest.v1",
-  "version": "0.9.61",
-  "release_tag": "v0.9.61",
-  "notes": "## [0.9.61] - 2026-09-21\n\n### Word 原页题面与公式识别\n\n- DOCX 先由 Microsoft Word 渲染真实页面，模型和分值确认弹窗共用同一份逐题原页裁剪，不再生成或发送重复的合成题目截图。\n- 修复 MinerU 4.0.4 对 DOCX 段落边界空格的对齐缺陷；仅忽略段首和段尾空白差异，内部文字或公式内容不一致时仍按原安全规则停止。\n\n### 任务时长与稳定性\n\n- 任务复用程序启动时已通过的完整环境检查，避免每个任务重复执行 Word 和绘图重检。\n- 教材依据扩展可与其余题目的首轮复核并行；只有题目、原页裁剪、教材、模型、配置和程序指纹全部一致时，才跨任务复用知识规划、检索和依据选择。\n- 同一模型路线的明确网络或服务故障会短暂共享冷却，不影响同供应商的其他模型；图件生成后使用最新持久化结果审计，避免已生成图件被误报为缺失。\n\n### GitHub 发布\n\n- 发布前先快速检查发布与前端合同，尽早发现过期断言；完整质量门禁通过后只打包和验证一次，发布工作流直接复用已验证产物。\n- Chromium 按 Playwright 版本缓存，避免每次发布重复下载浏览器；GitHub Actions 升级到当前 Node 24 版本，减少重复下载、过期运行时和网络失败点。\n\n### Cloudflare 智能路由\n\n- 智能路由在 Cloudflare 内记录调用趋势和逐次换线明细，并提供 Cloudflare 原生仪表板与 D1 查询视图；平台前后端不接入该看板。\n- 保留 `router.qstarorange.com` 自定义域名；统计故障不会阻断文字、视觉或生图路由，且不保存题目、图片、模型回复或密钥。\n\n### 验证范围\n\n- Python 3.11 完整门禁、隔离 Chromium 回归、源码包反向校验和隔离启动结果以本次发布记录为准。\n- 未发起额外付费模型请求；Windows 实机和桌面安装包不属于本次源码发布。",
+  "version": "0.9.62",
+  "release_tag": "v0.9.62",
+  "notes": "## [0.9.62] - 2026-09-22\n\n### 智能路由与模型接入\n\n- 修复 TopAPI Gemini 请求地址和无效响应识别，避免兼容性错误被误报为普通服务商拒绝。\n- 新增 Grok 智能路由和国模智能路由，接入灵算与 WawAPI 的 Grok 4.5、4.6、4.7、GLM 5.3 Flash/FlashX 和 DeepSeek V4.1 Flash 路线。\n- 所有虚拟智能路由不再进入后台供应商付费探测，避免没有用户任务时产生隐藏模型调用。\n\n### Cloudflare 路由看板\n\n- 重构 Cloudflare 原生看板，支持明亮与深色主题、自定义筛选器、指标下钻、请求尝试链、运营可读的失败解释及路线健康诊断。\n- 新增价格管理页，可按供应商、模型和生效时间维护 Token 或单张图片价格；保存后立即计算，并对历史用量按生效区间回溯。\n- 费用、Token、生图、供应商、模型、用户和任务阶段可按当前筛选联动查看；未填写价格的用量保持未计价，不估算费用。\n\n### 文档任务稳定性\n\n- 修复 Windows 上 LibreOffice 已成功生成 PDF 后，临时字体缓存仍被占用而导致任务误判失败的问题。\n- 任务文件列表跳过渲染临时目录，避免清理竞态拖慢或阻塞任务结果读取。\n\n### 验证范围\n\n- Python 3.11 完整门禁、隔离 Chromium 回归、Cloudflare Worker 类型检查、源码包反向校验和隔离启动结果以本次发布记录为准。\n- 已完成新增智能路由的线上最小连通验证；未重新执行完整教学任务，Windows 桌面安装包不属于本次源码发布。",
   "platforms": {
     "source": {
-      "asset_name": "answer-book-platform-0.9.61-source.zip",
-      "size_bytes": 15339237,
-      "sha256": "f527454d102ccc9e562b363b0982b9a19a3710d1a0d19930990b8448051dc2e9",
+      "asset_name": "answer-book-platform-0.9.62-source.zip",
+      "size_bytes": 15370259,
+      "sha256": "95141d1ea951de0aba9783a644088506de05cb77bdbc157a4b5cd514de134878",
       "dependency_fingerprint": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
       "dependency_fingerprints": {
         "py311": "87eb232d62b57019646a9c7e4aff698bb41e5c079452bf9b725eea33bd54fa08",
